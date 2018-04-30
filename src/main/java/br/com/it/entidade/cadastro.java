@@ -1,6 +1,7 @@
 package br.com.it.entidade;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,10 +33,30 @@ public class cadastro implements Serializable {
 	private String nome;
 	@Column(columnDefinition = "varchar(15)")
 	private String rg;
-	@Column(columnDefinition = "varchar(75)")
-	private String email;
+	@Column(columnDefinition = "char(2)")
+	private String tipo_pessoa;
 	@Column(columnDefinition = "varchar(20)")
 	private String cnpj_cpf;
+	@Column(columnDefinition = "date")
+	private Date data_nascimento;
+	@Column(columnDefinition = "varchar(15)")
+	private String nacionalidade;
+	@Column(columnDefinition = "char(1)")
+	private String sexo;
+	@Column(columnDefinition = "varchar(75)")
+	private String email;
+	@Column(columnDefinition = "char(5)")
+	private String logradouro;
+	@Column(columnDefinition = "varchar(50)")
+	private String endereco;
+	@Column(columnDefinition = "int")
+	private int numero;
+	@Column(columnDefinition = "varchar(20)")
+	private String complemento;
+	@Column(columnDefinition = "varchar(35)")
+	private String cidade;
+	@Column(columnDefinition = "varchar(20)")
+	private String estado;
 	@Column(columnDefinition = "varchar(20)")
 	private String telefone_residencial;
 	@Column(columnDefinition = "varchar(20)")
@@ -93,12 +114,12 @@ public class cadastro implements Serializable {
 		this.rg = rg;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getTipo_pessoa() {
+		return tipo_pessoa;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setTipo_pessoa(String tipo_pessoa) {
+		this.tipo_pessoa = tipo_pessoa;
 	}
 
 	public String getCnpj_cpf() {
@@ -107,6 +128,86 @@ public class cadastro implements Serializable {
 
 	public void setCnpj_cpf(String cnpj_cpf) {
 		this.cnpj_cpf = cnpj_cpf;
+	}
+
+	public Date getData_nascimento() {
+		return data_nascimento;
+	}
+
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
+
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
+
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public String getTelefone_residencial() {
@@ -146,16 +247,26 @@ public class cadastro implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((bloco == null) ? 0 : bloco.hashCode());
+		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
 		result = prime * result + ((cnpj_cpf == null) ? 0 : cnpj_cpf.hashCode());
+		result = prime * result + ((complemento == null) ? 0 : complemento.hashCode());
 		result = prime * result + condominio;
+		result = prime * result + ((data_nascimento == null) ? 0 : data_nascimento.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((logradouro == null) ? 0 : logradouro.hashCode());
+		result = prime * result + ((nacionalidade == null) ? 0 : nacionalidade.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + numero;
 		result = prime * result + perfil;
 		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
+		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
 		result = prime * result + ((telefone_celular == null) ? 0 : telefone_celular.hashCode());
 		result = prime * result + ((telefone_comercial == null) ? 0 : telefone_comercial.hashCode());
 		result = prime * result + ((telefone_residencial == null) ? 0 : telefone_residencial.hashCode());
+		result = prime * result + ((tipo_pessoa == null) ? 0 : tipo_pessoa.hashCode());
 		result = prime * result + ((unidade == null) ? 0 : unidade.hashCode());
 		return result;
 	}
@@ -174,24 +285,61 @@ public class cadastro implements Serializable {
 				return false;
 		} else if (!bloco.equals(other.bloco))
 			return false;
+		if (cidade == null) {
+			if (other.cidade != null)
+				return false;
+		} else if (!cidade.equals(other.cidade))
+			return false;
 		if (cnpj_cpf == null) {
 			if (other.cnpj_cpf != null)
 				return false;
 		} else if (!cnpj_cpf.equals(other.cnpj_cpf))
 			return false;
+		if (complemento == null) {
+			if (other.complemento != null)
+				return false;
+		} else if (!complemento.equals(other.complemento))
+			return false;
 		if (condominio != other.condominio)
+			return false;
+		if (data_nascimento == null) {
+			if (other.data_nascimento != null)
+				return false;
+		} else if (!data_nascimento.equals(other.data_nascimento))
 			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (estado == null) {
+			if (other.estado != null)
+				return false;
+		} else if (!estado.equals(other.estado))
+			return false;
 		if (id != other.id)
+			return false;
+		if (logradouro == null) {
+			if (other.logradouro != null)
+				return false;
+		} else if (!logradouro.equals(other.logradouro))
+			return false;
+		if (nacionalidade == null) {
+			if (other.nacionalidade != null)
+				return false;
+		} else if (!nacionalidade.equals(other.nacionalidade))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
+			return false;
+		if (numero != other.numero)
 			return false;
 		if (perfil != other.perfil)
 			return false;
@@ -199,6 +347,11 @@ public class cadastro implements Serializable {
 			if (other.rg != null)
 				return false;
 		} else if (!rg.equals(other.rg))
+			return false;
+		if (sexo == null) {
+			if (other.sexo != null)
+				return false;
+		} else if (!sexo.equals(other.sexo))
 			return false;
 		if (telefone_celular == null) {
 			if (other.telefone_celular != null)
@@ -214,6 +367,11 @@ public class cadastro implements Serializable {
 			if (other.telefone_residencial != null)
 				return false;
 		} else if (!telefone_residencial.equals(other.telefone_residencial))
+			return false;
+		if (tipo_pessoa == null) {
+			if (other.tipo_pessoa != null)
+				return false;
+		} else if (!tipo_pessoa.equals(other.tipo_pessoa))
 			return false;
 		if (unidade == null) {
 			if (other.unidade != null)

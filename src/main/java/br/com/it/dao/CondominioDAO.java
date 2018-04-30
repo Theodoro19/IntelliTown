@@ -1,6 +1,9 @@
 package br.com.it.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.com.it.entidade.condominio;
 import br.com.it.util.JPAUtil;
@@ -10,6 +13,7 @@ public class CondominioDAO extends LogGeralDAO {
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager manager;
+	private Query query;
 
 	public CondominioDAO() {
 		this.manager = JPAUtil.getManager();
@@ -28,7 +32,21 @@ public class CondominioDAO extends LogGeralDAO {
 		this.manager.remove(x);
 	}
 
+	public void baixarCondominio(condominio c) {
+		this.query = this.manager
+				.createNativeQuery("update condominio set data_baixa = GETDATE() where condominio = :p1 ");
+		this.query.setParameter("p1", c.getCondominio());
+		this.query.executeUpdate();
+	}
+
 	public condominio retornar(int id) {
 		return this.manager.find(condominio.class, id);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<condominio> listarTodosOsCondominios() {
+		this.query = this.manager.createQuery("from condominio ");
+		return this.query.getResultList();
+	}
+
 }

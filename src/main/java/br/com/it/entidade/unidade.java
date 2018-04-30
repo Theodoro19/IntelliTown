@@ -23,7 +23,7 @@ public class unidade implements Serializable {
 	@Column(columnDefinition = "bigint")
 	private int id;
 	@Column(columnDefinition = "int")
-	private String condominio;
+	private int condominio;
 	@Column(columnDefinition = "char(4)")
 	private String bloco;
 	@Column(columnDefinition = "char(6)")
@@ -37,11 +37,11 @@ public class unidade implements Serializable {
 		this.id = id;
 	}
 
-	public String getCondominio() {
+	public int getCondominio() {
 		return condominio;
 	}
 
-	public void setCondominio(String condominio) {
+	public void setCondominio(int condominio) {
 		this.condominio = condominio;
 	}
 
@@ -66,7 +66,7 @@ public class unidade implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((bloco == null) ? 0 : bloco.hashCode());
-		result = prime * result + ((condominio == null) ? 0 : condominio.hashCode());
+		result = prime * result + condominio;
 		result = prime * result + id;
 		result = prime * result + ((unidade == null) ? 0 : unidade.hashCode());
 		return result;
@@ -86,10 +86,7 @@ public class unidade implements Serializable {
 				return false;
 		} else if (!bloco.equals(other.bloco))
 			return false;
-		if (condominio == null) {
-			if (other.condominio != null)
-				return false;
-		} else if (!condominio.equals(other.condominio))
+		if (condominio != other.condominio)
 			return false;
 		if (id != other.id)
 			return false;

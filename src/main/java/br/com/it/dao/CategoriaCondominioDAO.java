@@ -1,6 +1,9 @@
 package br.com.it.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.com.it.entidade.categoria_condominio;
 import br.com.it.util.JPAUtil;
@@ -9,6 +12,7 @@ public class CategoriaCondominioDAO extends LogGeralDAO {
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager manager;
+	private Query query;
 
 	public CategoriaCondominioDAO() {
 		this.manager = JPAUtil.getManager();
@@ -29,5 +33,11 @@ public class CategoriaCondominioDAO extends LogGeralDAO {
 
 	public categoria_condominio retornar(int id) {
 		return this.manager.find(categoria_condominio.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<categoria_condominio> listarCategorias() {
+		this.query = this.manager.createQuery("from categoria_condominio ");
+		return this.query.getResultList();
 	}
 }

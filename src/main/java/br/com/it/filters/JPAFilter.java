@@ -32,6 +32,7 @@ public class JPAFilter implements Filter {
 		pmap.put(this.conf.Conf().getProperty("jdbc.user"), conf.Conf().getProperty("jdbc.user.value"));
 		pmap.put(this.conf.Conf().getProperty("jdbc.password"), conf.Conf().getProperty("jdbc.password.value"));
 		pmap.put(this.conf.Conf().getProperty("jdbc.url"), conf.Conf().getProperty("jdbc.url.value"));
+		pmap.put(this.conf.Conf().getProperty("hibernate.connection.isolation"), conf.Conf().getProperty("hibernate.connection.isolation.value"));
 		factory = Persistence.createEntityManagerFactory("intellitown", pmap);
 	}
 
