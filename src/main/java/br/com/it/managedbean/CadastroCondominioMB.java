@@ -211,4 +211,9 @@ public class CadastroCondominioMB implements Serializable {
 		TipoCondominioDAO dao = new TipoCondominioDAO();
 		dao.salvar(this.tipo_condominio);
 	}
+
+	public void salvarCategoriasDeCondominio() {
+		CategoriaCondominioDAO dao = new CategoriaCondominioDAO();
+		dao.salvar(this.categoria_condominio);
+	}
 }

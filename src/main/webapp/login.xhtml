@@ -12,7 +12,7 @@
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</f:facet>
-	<title>HealthTrack</title>
+	<title>IntelliTown</title>
 	<h:outputScript name="js/layout.js" library="spark-layout" />
 
 	<h:outputText value="&lt;!--[if gte IE 9]&gt;" escape="false" />
@@ -21,48 +21,17 @@
 </style>
 	<h:outputText value="&lt;![endif]--&gt;" escape="false" />
 
-	<ui:insert name="head" />
+	<ui:insert name="head">
+	</ui:insert>
 </h:head>
 <h:body>
 	<h:form id="frmLogin">
-		<div id="layout-portlets-cover">
-			<div
-				class="other-pages-box Container80 Responsive100 MarAuto Fnone TexAlCenter ShadowGray MarTop10"
-				style="margin-top: 5%; background-repeat: no-repeat; background-position: center; background-size: cover; background-color: #FFF;">
-				<div class="Container80 Fnone MarAuto TexAlCenter">
-					<div class="EmptyBox50"></div>
-					<h:graphicImage name="images/HealthTrack.jpg" styleClass="Fleft"
-						style="width:180px;height:80px;" library="spark-layout"
-						class="MarAuto MarTop20 MarBot10" />
-					<div class="EmptyBox20"></div>
-					<p:inputText id="email" value="#{login.usuario.email}"
-						placeholder="Usuário" styleClass="Container50 Fnone MarAuto Fs18"
-						required="true" requiredMessage="Usuário obrigatório!" />
-					<div class="EmptyBox10"></div>
-					<p:password id="senha" value="#{login.usuario.senha}"
-						placeholder="Senha" styleClass="Container50 Fnone MarAuto Fs18"
-						feedback="false" required="true"
-						requiredMessage="Senha obrigatório!" />
-					<p:messages id="msg" showDetail="true" autoUpdate="true"
-						closable="true" escape="true" showSummary="false"
-						styleClass="Container80 Fnone MarAuto Fs18" />
-					<div class="EmptyBox20"></div>
-					<div class="EmptyBox30"></div>
-					<p:commandButton id="btnEntrar" value="Entrar"
-						action="#{login.login()}" update="@all" styleClass="Fs16" />
-					<div class="EmptyBox10"></div>
-					<div class="Seperator"></div>
-					<div class="EmptyBox10"></div>
-
-					<p:button value="Cadastre-se" styleClass="Fs16 RedButton"
-						href="cadastro.xhtml"></p:button>
-					<p:button value="Esqueceu a senha" styleClass="Fs16 RedButton"
-						href="confirmEmail.xhtml"></p:button>
-					<div class="EmptyBox50"></div>
-				</div>
-			</div>
-		</div>
+		<div id="layout-portlets-cover"></div>
 	</h:form>
+	<div class="layout-portlets-box TexAlCenter">
+		<span class="Fs14 gray FontRalewayRegular">IntelliTown| Todos
+			os direitos reservados.</span>
+	</div>
 	<h:outputStylesheet name="css/core-layout.css" library="spark-layout" />
 	<h:outputStylesheet name="css/font-awesome.css" library="spark-layout" />
 	<h:outputStylesheet name="css/animate.css" library="spark-layout" />

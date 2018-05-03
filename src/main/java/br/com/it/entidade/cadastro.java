@@ -36,7 +36,7 @@ public class cadastro implements Serializable {
 	@Column(columnDefinition = "char(2)")
 	private String tipo_pessoa;
 	@Column(columnDefinition = "varchar(20)")
-	private String cnpj_cpf;
+	private String cnpj;
 	@Column(columnDefinition = "date")
 	private Date data_nascimento;
 	@Column(columnDefinition = "varchar(15)")
@@ -122,12 +122,12 @@ public class cadastro implements Serializable {
 		this.tipo_pessoa = tipo_pessoa;
 	}
 
-	public String getCnpj_cpf() {
-		return cnpj_cpf;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setCnpj_cpf(String cnpj_cpf) {
-		this.cnpj_cpf = cnpj_cpf;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 	public Date getData_nascimento() {
@@ -248,7 +248,7 @@ public class cadastro implements Serializable {
 		int result = 1;
 		result = prime * result + ((bloco == null) ? 0 : bloco.hashCode());
 		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
-		result = prime * result + ((cnpj_cpf == null) ? 0 : cnpj_cpf.hashCode());
+		result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
 		result = prime * result + ((complemento == null) ? 0 : complemento.hashCode());
 		result = prime * result + condominio;
 		result = prime * result + ((data_nascimento == null) ? 0 : data_nascimento.hashCode());
@@ -290,10 +290,10 @@ public class cadastro implements Serializable {
 				return false;
 		} else if (!cidade.equals(other.cidade))
 			return false;
-		if (cnpj_cpf == null) {
-			if (other.cnpj_cpf != null)
+		if (cnpj == null) {
+			if (other.cnpj != null)
 				return false;
-		} else if (!cnpj_cpf.equals(other.cnpj_cpf))
+		} else if (!cnpj.equals(other.cnpj))
 			return false;
 		if (complemento == null) {
 			if (other.complemento != null)

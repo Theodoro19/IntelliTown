@@ -1,6 +1,9 @@
 package br.com.it.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.com.it.entidade.permissao;
 import br.com.it.util.JPAUtil;
@@ -10,6 +13,7 @@ public class PermissaoDAO extends LogGeralDAO {
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager manager;
+	private Query query;
 
 	public PermissaoDAO() {
 		this.manager = JPAUtil.getManager();
@@ -30,5 +34,11 @@ public class PermissaoDAO extends LogGeralDAO {
 
 	public permissao retornar(int id) {
 		return this.manager.find(permissao.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<permissao> listarPermissao() {
+		this.query = this.manager.createQuery("from permissao ");
+		return this.query.getResultList();
 	}
 }
