@@ -1,1 +1,1 @@
-# IntelliTown
+# LNTIntelligence
